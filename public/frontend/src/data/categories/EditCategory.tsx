@@ -127,7 +127,7 @@ const Createwiki = () => {
             break;
            }
     }).catch((error) => settoast(<Toast message={`An error has occured ${error}`} type='danger'/>)).finally(() => setisLoading(false));
-      }, [])
+      }, [fetchCategories])
       
   return (
     <>

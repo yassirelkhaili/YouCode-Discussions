@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import { ResponseProps } from '../components/Register';
+import { ResponseProps } from '../pages/Register';
 import Toast from './ToastComponent';
 
 interface ModalProps {

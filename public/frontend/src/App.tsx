@@ -1,19 +1,21 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from "./components/Home";
-import Login from './components/Login';
-import Register from './components/Register';
-import Dashboard from './components/Dashboard';
-import Craftwiki from './components/Craftwiki';
+import Home from "./pages/Home";
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
+import Craftwiki from './pages/Craftwiki';
 import Createwiki from './data/wikis/Createwiki';
 import Editwiki from './data/wikis/Editwiki';
 import Createcategory from './data/categories/Createcat';
 import EditCategory from './data/categories/EditCategory';
+import Header from './layout/Header';
 
 function App() {
   return (
-    <BrowserRouter>
+      <BrowserRouter>
     <Routes>
       <Route path='/' Component={Home}/>
+      <Route path='/' Component={Header}/>
       <Route path='/login' Component={Login}/>
       <Route path='/register' Component={Register}/>
       <Route path='/dashboard' Component={Dashboard}/>

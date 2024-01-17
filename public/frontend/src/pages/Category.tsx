@@ -16,7 +16,7 @@ interface ResponseProps {
     content?: Array<Category>;
 }
 
-const Category = () => {
+const CraftCategory = () => {
     const [categories, setcategories] = useState<Array<Category>>();
     const [isLoading, setisLoading] = useState<boolean>(false);
     const [toast, settoast] = useState<React.ReactNode>(<></>);
@@ -118,4 +118,4 @@ const Category = () => {
   )
 }
 
-export default Category
+export default CraftCategory

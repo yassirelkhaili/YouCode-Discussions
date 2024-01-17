@@ -3,7 +3,7 @@ import Spinner from '../utils/Spinner';
 import Toast from '../utils/ToastComponent';
 import { Tag } from '../data/wikis/Createwiki';
 import Modal from '../utils/ModalComponent';
-import Category from './Category';
+import CraftCategory from './Category';
 
 interface Wiki {
     id: number;
@@ -133,7 +133,7 @@ const Craftwiki = () => {
                         </table>
                         {toast}
                     </section>
-                    <Category />
+                    <CraftCategory />
     </>
   )
 }
