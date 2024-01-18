@@ -4,7 +4,7 @@ namespace SimpleKit\Controllers;
 
 use function SimpleKit\Helpers\redirect;
 use SimpleKit\Helpers\Request;
-use SimpleKit\Models\Wiki;
+use SimpleKit\Models\Thread;
 use SimpleKit\Models\Tag;
 use SimpleKit\Models\Category;
 use SimpleKit\Models\User;
@@ -17,7 +17,7 @@ class HomeController extends BaseController {
     protected $category;
     public function __construct() {
         // Instantiate the home and assign it to the protected property
-        $this->wiki = new Wiki();
+        $this->wiki = new Thread();
         $this->tag = new Tag();
         $this->user = new User();
         $this->category = new Category();

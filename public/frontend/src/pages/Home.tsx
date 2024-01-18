@@ -102,8 +102,44 @@ const Home = () => {
 
   return (
     <>
-      <section className="bg-gray-900">
-       <div className="p-4 mt-8 mb-8 max-w-[20rem] rounded-lg bg-card_background_color">
+    <section className="bg-gray-900 grid grid-cols-3 px-4 w-100vw">
+      <aside className="top-[4rem] left-[2rem] col-span-1 hover:overflow-y-auto">
+      <div className="overflow-y-auto flex flex-col divide-y">
+      <h1>hello</h1>
+      </div>
+      </aside>
+      <div className="overflow-y-auto bg-gray-900 col-span-1 col-start-2 col-end-3">
+      {(isLoading) ? <Spinner/> : wikis && wikis.map((wiki: Wiki, index: number) => {
+    return (
+      <div key={index}>
+      <div className="max-w-screen-lg text-gray-500 sm:text-lg dark:text-gray-400">
+          <h2 className="mb-4 text-2xl tracking-tight font-bold text-white dark:text-white">{wiki.title}</h2>
+          <p className="lead text-gray-500 text-[1.1rem] mb-4">{wiki.content.slice(0, 285)}</p>
+          <div className="flex justify-center items-start gap-2 flex-col">
+         <div className="flex flex-wrap gap-1">
+         {wikis[index].tags && wikis[index].tags.split(',').map((tag: string, index: number) => {
+                        return (
+                          <div 
+                          key={index} 
+                          className='dark:bg-primary-900 flex py-1 rounded gap-1 px-2 text-primary-300'
+                        >
+                          <span className="text-xs font-medium text-primary-300">{tag}</span>
+                        </div>                        
+                        )
+          })}
+         </div>
+          <a href={`${process.env.REACT_APP_HOST_NAME}/wiki/${wiki.id}`} className="flex items-center font-medium text-primary-600 hover:text-primary-800 dark:text-primary-500 dark:hover:text-primary-700">
+              Read Thread
+              <svg className="ml-1 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path></svg>
+          </a>
+          </div>
+      </div>
+  </div>
+    )
+  })}
+      </div>
+    <aside className="top-[4rem] right-[2rem] col-span-1 flex flex-col gap-2 justify-center items-end">
+       <div className="p-4 mt-8 mb-8 max-w-[20rem] rounded-lg bg-card_background_color w-full">
         <h2 className="mb-6 text-2xl tracking-tight font-bold text-[#3B82F6]">Latest Threads</h2>
   {(isLoading) ? <Spinner/> : wikis && wikis.slice(0, 5).map((wiki: Wiki, index: number) => {
     return (
@@ -150,7 +186,8 @@ const Home = () => {
   })}
   </div>
   </div>
-</section>
+</aside>
+    </section>
     </>
   )
 }
