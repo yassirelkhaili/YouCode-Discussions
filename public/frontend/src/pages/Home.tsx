@@ -102,13 +102,13 @@ const Home = () => {
 
   return (
     <>
-    <section className="bg-gray-900 grid grid-cols-3 px-4 w-100vw">
-      <aside className="top-[4rem] left-[2rem] col-span-1 hover:overflow-y-auto">
+    <section className="bg-gray-900 grid grid-cols-12 m:pl-0 mx-auto m:mx-lg l:m-auto xl:m-auto l:max-w-[1352px] xl:max-w-[1524px]">
+      <aside className="top-[4rem] left-[2rem] col-span-2 hover:overflow-y-auto ">
       <div className="overflow-y-auto flex flex-col divide-y">
       <h1>hello</h1>
       </div>
       </aside>
-      <div className="overflow-y-auto bg-gray-900 col-span-1 col-start-2 col-end-3">
+      <div className="overflow-y-auto bg-gray-900 col-span-6 mx-auto sm:mx-8 2xl:mx-28 pt-8">
       {(isLoading) ? <Spinner/> : wikis && wikis.map((wiki: Wiki, index: number) => {
     return (
       <div key={index}>
@@ -116,6 +116,7 @@ const Home = () => {
           <h2 className="mb-4 text-2xl tracking-tight font-bold text-white dark:text-white">{wiki.title}</h2>
           <p className="lead text-gray-500 text-[1.1rem] mb-4">{wiki.content.slice(0, 285)}</p>
           <div className="flex justify-center items-start gap-2 flex-col">
+          <p className="text-gray-500">tags:</p>
          <div className="flex flex-wrap gap-1">
          {wikis[index].tags && wikis[index].tags.split(',').map((tag: string, index: number) => {
                         return (
@@ -138,8 +139,8 @@ const Home = () => {
     )
   })}
       </div>
-    <aside className="top-[4rem] right-[2rem] col-span-1 flex flex-col gap-2 justify-center items-end">
-       <div className="p-4 mt-8 mb-8 max-w-[20rem] rounded-lg bg-card_background_color w-full">
+    <aside className="top-[4rem] right-[2rem] hidden lg:mr-4 lg:flex col-span-4 flex-col gap-2 justify-center items-end">
+       <div className="p-4 pt-8 max-w-[20rem] rounded-lg bg-card_background_color w-full">
         <h2 className="mb-6 text-2xl tracking-tight font-bold text-[#3B82F6]">Latest Threads</h2>
   {(isLoading) ? <Spinner/> : wikis && wikis.slice(0, 5).map((wiki: Wiki, index: number) => {
     return (
@@ -148,7 +149,6 @@ const Home = () => {
           <h2 className="mb-4 text-2xl tracking-tight font-bold text-white dark:text-white">{wiki.title}</h2>
           <p className="lead text-gray-500 text-[1.1rem] mb-4">{wiki.content.slice(0, 285)}</p>
           <div className="flex justify-center items-start gap-2 flex-col">
-          <p className="text-gray-500">tags:</p>
          <div className="flex flex-wrap gap-1">
          {wikis[index].tags && wikis[index].tags.split(',').map((tag: string, index: number) => {
                         return (
