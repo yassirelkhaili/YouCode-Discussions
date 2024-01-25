@@ -14,7 +14,13 @@
         public function create($data) {
             $this->entity->saveMany([$data]);
         }
-
+/**
+ * Executes custom sql queries.
+ * @param string $query - Custom sql query.
+ * @param array $params - Assoc array containing query params. --oprional--
+ * @return array - Query result.
+ * @example $users = $this->raw("SELECT * FROM users WHERE userID = :id", ['id' => $id]);
+ */
          public function raw (string $query, array $params = []): array {
             return $this->entity->raw($query, $params);
         }

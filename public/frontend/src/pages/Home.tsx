@@ -105,7 +105,6 @@ const Home = () => {
     <section className="bg-gray-900 grid grid-cols-12 m:pl-0 mx-auto m:mx-lg l:m-auto xl:m-auto l:max-w-[1352px] xl:max-w-[1524px]">
       <aside className="top-[4rem] left-[2rem] col-span-2 hover:overflow-y-auto ">
       <div className="overflow-y-auto flex flex-col divide-y">
-      <h1>hello</h1>
       </div>
       </aside>
       <div className="overflow-y-auto bg-gray-900 col-span-6 mx-auto sm:mx-8 2xl:mx-28 pt-8">

@@ -3,10 +3,18 @@
     namespace SimpleKit\Models;
     
     use SimpleKit\SimpleORM\EntityManager;
-    
+        
+    /**
+     * User
+     */
     class User {
         private $entity;
-    
+            
+        /**
+         * 
+         *
+         * @return void
+         */
         public function __construct() {
             $this->entity = new EntityManager("user");
         }

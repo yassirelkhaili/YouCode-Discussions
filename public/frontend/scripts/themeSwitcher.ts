@@ -3,6 +3,15 @@
  * @license MIT
 */
 
+
+/**
+ * @property {string} currentTheme
+ * @description keeps track of the current theme
+ */
+/**
+ * 
+ * @type {string}
+ */
 let currentTheme: string = "";
 
 const handleInitialTheme = () => {
@@ -12,7 +21,7 @@ const handleInitialTheme = () => {
   );
 
 const themeStored = localStorage.getItem("color-theme");
-if (themeStored === "dark" || (themeStored === null && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+if (themeStored === "dark" || (themeStored === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
     document.documentElement.classList.add("dark");
     localStorage.setItem("color-theme", "dark");
     currentTheme = "dark";
@@ -38,7 +47,11 @@ document.addEventListener("DOMContentLoaded", () => {
         "#selectThemeDropdown"
       ) as HTMLDivElement;
     
-      //handle theme switch
+      /**
+       * @function toggleLightTheme
+       * @returns {void}
+       * @description Toggles light theme
+       */
       const toggleLightTheme = (): void => {
         document.documentElement.classList.remove("dark");
         themeToggleLightIcon?.classList.remove("hidden");
@@ -55,7 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
         currentTheme = "dark";
       };
     
-      //handle dropdownMenu toggle
+      /**
+       * @function toggleThemeDropdown
+       * @description handles theme dropdown toggle animation
+       * @returns {void}
+       */
       const toggleThemeDropdown = (): void => {
         if (dropDown.classList.contains("hidden")) {
           dropDown.classList.remove("hidden");
@@ -87,8 +104,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     handleInitialThemeIcon();
     
-      //close dropdown on outside click
-      const handleOutsideClick = (element: HTMLElement, event: Event) => {
+    /**
+     * @function handleOutsideClick
+     * @description Closes theme dropdown on outside click
+     * @returns {void}
+     * @param element - Element being clicked
+     * @param event
+     */ 
+      const handleOutsideClick = (element: HTMLElement, event: Event): void => {
         const target = event.target as HTMLElement;
         if (element) {
           if (

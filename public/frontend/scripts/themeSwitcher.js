@@ -2,6 +2,14 @@
  * @author Yassir Elkhaili
  * @license MIT
 */
+/**
+ * @property {string} currentTheme
+ * @description keeps track of the current theme
+ */
+/**
+ *
+ * @type {string}
+ */
 var currentTheme = "";
 var handleInitialTheme = function () {
     var rootClasses = ["transition", "duration-100"];
@@ -9,7 +17,7 @@ var handleInitialTheme = function () {
         return document.documentElement.classList.add(rootClass);
     });
     var themeStored = localStorage.getItem("color-theme");
-    if (themeStored === "dark" || (themeStored === null && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    if (themeStored === "dark" || (themeStored === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
         document.documentElement.classList.add("dark");
         localStorage.setItem("color-theme", "dark");
         currentTheme = "dark";
@@ -25,7 +33,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var themeToggleLightIcon = document.getElementById("theme-toggle-light-icon");
     var themeToggleBtn = document.getElementById("theme-toggle");
     var dropDown = document.querySelector("#selectThemeDropdown");
-    //handle theme switch
+    /**
+     * @function toggleLightTheme
+     * @returns {void}
+     * @description Toggles light theme
+     */
     var toggleLightTheme = function () {
         document.documentElement.classList.remove("dark");
         themeToggleLightIcon === null || themeToggleLightIcon === void 0 ? void 0 : themeToggleLightIcon.classList.remove("hidden");
@@ -40,7 +52,11 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("color-theme", "dark");
         currentTheme = "dark";
     };
-    //handle dropdownMenu toggle
+    /**
+     * @function toggleThemeDropdown
+     * @description handles theme dropdown toggle animation
+     * @returns {void}
+     */
     var toggleThemeDropdown = function () {
         if (dropDown.classList.contains("hidden")) {
             dropDown.classList.remove("hidden");
@@ -69,7 +85,13 @@ document.addEventListener("DOMContentLoaded", function () {
         currentTheme === "dark" ? themeToggleDarkIcon.classList.remove('hidden') : themeToggleLightIcon.classList.remove('hidden');
     };
     handleInitialThemeIcon();
-    //close dropdown on outside click
+    /**
+     * @function handleOutsideClick
+     * @description Closes theme dropdown on outside click
+     * @returns {void}
+     * @param element - Element being clicked
+     * @param event
+     */
     var handleOutsideClick = function (element, event) {
         var target = event.target;
         if (element) {

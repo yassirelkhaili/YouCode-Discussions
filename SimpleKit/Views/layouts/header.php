@@ -36,17 +36,16 @@
   </script>
   <title><?= $pageTitle ?></title>
 </head>
-
 <body class="dark:bg-main_background_color bg-white">
   <header class="absolute w-full flex px-6 justify-between items-center h-[4.4rem] border-b-[1px] dark:border-border_color border-white dark:bg-main_header bg-white">
     <div>
-      <a href="/"><img src="../../public/frontend/src/images/brandlogo.webp" alt="WebCraft logo" class="h-[50px] w-[240px]"></a>
+      <a href="/"><img src=<?= $media["brandlogo"] ?> alt="WebCraft logo" class="h-[50px] w-[240px]"></a>
     </div>
     <div id="header"></div>
     <div class="flex justify-center items-center gap-2">
     <div class="flex justify-center items-center gap-3">
       <div id="theme-switcher" class="relative">
-        <div id="selectThemeDropdown" class="transform translate-y-3 hidden herothird:right-[-18px] right-[-50px] min-w-[11rem] top-[2.5rem] mt-2 z-10 opacity-0 transition duration-200 mb-2 origin-bottom-left bg-white shadow-md rounded-lg p-2 space-y-1 dark:bg-gray-800 dark:border dark:border-gray-700 dark:divide-gray-700 absolute">
+        <div id="selectThemeDropdown" class="transform translate-y-3 hidden herothird:right-[-18px] right-[-50px] min-w-[11rem] top-[1.9rem] mt-2 z-10 opacity-0 transition duration-200 mb-2 origin-bottom-left bg-white shadow-md rounded-lg p-2 space-y-1 dark:bg-gray-800 dark:border dark:border-gray-700 dark:divide-gray-700 absolute">
           <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 cursor-pointer">
             Auto (system default)
           </a>

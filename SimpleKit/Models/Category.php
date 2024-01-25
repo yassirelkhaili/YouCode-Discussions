@@ -3,7 +3,7 @@
     namespace SimpleKit\Models;
     
     use SimpleKit\SimpleORM\EntityManager;
-    
+            
     class Category {
         private $entity;
     
